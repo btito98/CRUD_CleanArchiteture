@@ -1,8 +1,8 @@
-﻿using CleanArch.Application.Interfaces;
-using CleanArch.Application.Services;
-using CleanArch.Domain.Interfaces;
-using CleanArch.Infra.Data.Context;
-using CleanArch.Infra.Data.Repository;
+﻿using Clinica.Application.Interfaces;
+using Clinica.Application.Services;
+using Clinica.Domain.Interfaces;
+using Clinica.Infra.Data.Context;
+using Clinica.Infra.Data.Repository;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
@@ -15,7 +15,7 @@ using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CleanArch.Infra.IoC
+namespace Clinica.Infra.IoC
 {
     public static class DependencyInjection
     {
@@ -30,8 +30,11 @@ namespace CleanArch.Infra.IoC
             services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
                 .AddEntityFrameworkStores<ApplicationDbContext>();
 
-            services.AddScoped<IProductRepository, ProductRepository>();
-            services.AddScoped<IProductService, ProductService>();
+         
+            services.AddScoped<IMedicoRepository, MedicoRepository>();
+
+          
+            services.AddScoped<IMedicoService, MedicoService>();  
 
             return services;
         }

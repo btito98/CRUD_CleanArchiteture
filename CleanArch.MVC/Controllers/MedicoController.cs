@@ -1,22 +1,23 @@
-﻿using CleanArch.Application.Interfaces;
-using CleanArch.Application.ViewModels;
-using CleanArch.Domain.Entities;
+﻿using Clinica.Application.Interfaces;
+using Clinica.Application.Services;
+using Clinica.Application.ViewModels;
 using Microsoft.AspNetCore.Mvc;
 
-namespace CleanArch.MVC.Controllers
+namespace Clinica.MVC.Controllers
 {
-    public class ProductsController : Controller
+    public class MedicoController : Controller
     {
-        private readonly IProductService _productService;
-        public ProductsController(IProductService productService)
+        private readonly IMedicoService _mediicoService;
+
+        public MedicoController(IMedicoService medicoService)
         {
-            _productService = productService;
+            _mediicoService = medicoService;
         }
 
         [HttpGet]
         public async Task<IActionResult> Index()
         {
-            var result = await _productService.GetProducts();
+            var result = await _mediicoService.GetMedicos();
             return View(result);
         }
 
@@ -28,14 +29,14 @@ namespace CleanArch.MVC.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult Create([Bind("Id,Name,Description,Price")] ProductViewModel product)
+        public IActionResult Create([Bind("Id,Nome,CRM,Especialidade")] MedicoViewModel medicoVM)
         {
             if (ModelState.IsValid)
             {
-                _productService.Add(product);
+                _mediicoService.Add(medicoVM);
                 return RedirectToAction(nameof(Index));
             }
-            return View(product);
+            return View(medicoVM);
         }
 
         [HttpGet]
@@ -43,22 +44,22 @@ namespace CleanArch.MVC.Controllers
         {
             if (id == null) return NotFound();
 
-            var productVM = await _productService.GetById(id);
+            var medicoVM = await _mediicoService.GetById(id);
 
-            if (productVM == null) return NotFound();
+            if (medicoVM == null) return NotFound();
 
-            return View(productVM);
+            return View(medicoVM);
         }
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult Edit([Bind("Id,Name,Description,Price")] ProductViewModel productVM)
+        public IActionResult Edit([Bind("Id,Nome,CRM,Especialidade")] MedicoViewModel medicoVM)
         {
             if (ModelState.IsValid)
             {
                 try
                 {
-                    _productService.Update(productVM);
+                    _mediicoService.Update(medicoVM);
                 }
                 catch (Exception ex)
                 {
@@ -66,23 +67,21 @@ namespace CleanArch.MVC.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            return View(productVM);
+            return View(medicoVM);
         }
 
+        [HttpGet]
         public async Task<IActionResult> Details(int? id)
         {
-            if (id == null)
-            {
-                return NotFound();
-            }
-            var productVM = await _productService.GetById(id);
+            if(id == null) return NotFound();
 
-            if (productVM == null)
-            {
-                return NotFound();
-            }
-            return View(productVM);
+            var medicoVM = await _mediicoService.GetById(id);
+
+            if(medicoVM == null) return NotFound();
+
+            return View(medicoVM);
         }
+
 
         [HttpGet]
         public async Task<IActionResult> Delete(int? id)
@@ -92,22 +91,24 @@ namespace CleanArch.MVC.Controllers
                 return NotFound();
             }
 
-            var productVM = await _productService.GetById(id);
+            var medicoVM = await _mediicoService.GetById(id);
 
-            if(productVM == null)
+            if (medicoVM == null)
             {
                 return NotFound();
             }
 
-            return View(productVM);
+            return View(medicoVM);
         }
 
         [HttpPost(), ActionName("Delete")]
         public IActionResult DeleteConfirmed(int id)
         {
-            _productService.Remove(id);
+            _mediicoService.Remove(id);
 
             return RedirectToAction("Index");
-        } 
+        }
+
+
     }
 }

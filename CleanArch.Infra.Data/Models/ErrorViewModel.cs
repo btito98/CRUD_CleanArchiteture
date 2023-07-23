@@ -1,4 +1,4 @@
-namespace CleanArch.Infra.Data.Models
+namespace Clinica.Infra.Data.Models
 {
     public class ErrorViewModel
     {

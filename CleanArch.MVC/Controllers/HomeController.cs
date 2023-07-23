@@ -1,8 +1,8 @@
-﻿using CleanArch.Infra.Data.Models;
+﻿using Clinica.Infra.Data.Models;
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
 
-namespace CleanArch.MVC.Controllers
+namespace Clinica.MVC.Controllers
 {
     public class HomeController : Controller
     {

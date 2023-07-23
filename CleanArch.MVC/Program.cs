@@ -1,5 +1,5 @@
-using CleanArch.Infra.IoC;
-using CleanArch.MVC.MappingConfig;
+using Clinica.Infra.IoC;
+using Clinica.MVC.MappingConfig;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 

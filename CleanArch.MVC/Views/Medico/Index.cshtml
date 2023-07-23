@@ -1,7 +1,7 @@
-﻿@model IEnumerable<CleanArch.Application.ViewModels.ProductViewModel>
+﻿@model IEnumerable<Clinica.Application.ViewModels.MedicoViewModel>
 
 @{
-    ViewData["Title"] = "Gerenciamento de Produtos";
+    ViewData["Title"] = "Gerenciamento de Medicos";
 }
 <style>
     .modal-lg {
@@ -18,7 +18,7 @@
         <div>
             <div class="pull-left">
                 <a asp-action="Create" class="btn btn-primary">
-                    <span title="Novo Registro" class="fas fa-plus"></span> Adicionar Produto
+                    <span title="Novo Registro" class="fas fa-plus"></span> Cadastrar Médico
                 </a>
             </div>
         </div>
@@ -30,13 +30,13 @@
         <thead>
             <tr>
                 <th>
-                    @Html.DisplayNameFor(model => model.Name)
+                    @Html.DisplayNameFor(model => model.Nome)
                 </th>
                 <th>
-                    @Html.DisplayNameFor(model => model.Description)
+                    @Html.DisplayNameFor(model => model.CRM)
                 </th>
                 <th>
-                    @Html.DisplayNameFor(model => model.Price)
+                    @Html.DisplayNameFor(model => model.Especialidade)
                 </th>
                 <th></th>
             </tr>
@@ -47,13 +47,13 @@
             {
                 <tr>
                     <td>
-                        @Html.DisplayFor(modelItem => item.Name)
+                        @Html.DisplayFor(modelItem => item.Nome)
                     </td>
                     <td>
-                        @Html.DisplayFor(modelItem => item.Description)
+                        @Html.DisplayFor(modelItem => item.CRM)
                     </td>
                     <td>
-                        @Html.DisplayFor(modeItem => item.Price)
+                        @Html.DisplayFor(modeItem => item.Especialidade)
                     </td>
                     <td>
                         <a asp-action="Edit" asp-route-id="@item.Id" title="Edit" class="btn btn-warning">

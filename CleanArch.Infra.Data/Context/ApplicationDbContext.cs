@@ -1,9 +1,9 @@
-﻿using CleanArch.Domain.Entities;
-using CleanArch.Infra.Data.EntityConfigurations;
+﻿using Clinica.Domain.Entities;
+using Clinica.Infra.Data.EntityConfigurations;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 
-namespace CleanArch.Infra.Data.Context;
+namespace Clinica.Infra.Data.Context;
 
 public class ApplicationDbContext : IdentityDbContext
 {
@@ -12,11 +12,10 @@ public class ApplicationDbContext : IdentityDbContext
     {
     }
 
-    public DbSet<Product> Products { get; set; }
+    public DbSet<Medico> Medico { get; set; }
 
     protected override void OnModelCreating(ModelBuilder builder)
     {
         base.OnModelCreating(builder);
-        builder.ApplyConfiguration(new ProductConfiguration());
     }
 }

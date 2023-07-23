@@ -1,6 +1,6 @@
-﻿using CleanArch.Application.Mappings;
+﻿using Clinica.Application.Mappings;
 
-namespace CleanArch.MVC.MappingConfig
+namespace Clinica.MVC.MappingConfig
 {
     public static class AutoMapperConfig
     {
