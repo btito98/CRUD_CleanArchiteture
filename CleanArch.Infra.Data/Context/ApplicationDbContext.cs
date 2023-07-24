@@ -13,6 +13,7 @@ public class ApplicationDbContext : IdentityDbContext
     }
 
     public DbSet<Medico> Medico { get; set; }
+    public DbSet<Paciente> Paciente { get; set; }
 
     protected override void OnModelCreating(ModelBuilder builder)
     {

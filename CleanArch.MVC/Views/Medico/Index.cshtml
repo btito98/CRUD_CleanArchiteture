@@ -7,6 +7,16 @@
     .modal-lg {
         max-width: 80%;
     }
+
+    .text-center {
+        text-align: center;
+    }
+
+    .btn-margin{
+        margin-right: 10px;
+    }
+
+    
 </style>
 
 <div>
@@ -55,16 +65,16 @@
                     <td>
                         @Html.DisplayFor(modeItem => item.Especialidade)
                     </td>
-                    <td>
-                        <a asp-action="Edit" asp-route-id="@item.Id" title="Edit" class="btn btn-warning">
+                    <td class="text-center">
+                        <a asp-action="Edit" asp-route-id="@item.Id" title="Edit" class="btn btn-warning btn-margin">
                             <span class="fas fa-edit">Editar</span>
                         </a>
 
-                        <a asp-action="Details" asp-route-id="@item.Id" title="Details" class="btn btn-primary">
+                        <a asp-action="Details" asp-route-id="@item.Id" title="Details" class="btn btn-primary btn-margin">
                             <span class="fas fa-search">Detalhes</span>
                         </a>
 
-                        <a asp-action="Delete" asp-route-id="@item.Id" title="Delete" class="btn btn-danger">
+                        <a asp-action="Delete" asp-route-id="@item.Id" title="Delete" class="btn btn-danger btn-margin">
                             <span class="fas fa-trash-alt">Excluir</span>
                         </a>
                     </td>

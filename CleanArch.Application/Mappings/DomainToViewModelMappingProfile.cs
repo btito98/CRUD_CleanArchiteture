@@ -14,6 +14,7 @@ namespace Clinica.Application.Mappings
         public DomainToViewModelMappingProfile()
         {
             CreateMap<Medico, MedicoViewModel>();
+            CreateMap<Paciente, PacienteViewModel>();
         }
     }
 }

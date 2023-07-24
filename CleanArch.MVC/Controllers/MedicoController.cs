@@ -106,6 +106,7 @@ namespace Clinica.MVC.Controllers
         {
             _mediicoService.Remove(id);
 
+
             return RedirectToAction("Index");
         }
 
