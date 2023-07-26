@@ -1,4 +1,6 @@
 ﻿using Clinica.Application.Interfaces;
+using Clinica.Application.ViewModels;
+using Clinica.Domain.Entities;
 using Clinica.Domain.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 
@@ -19,5 +21,21 @@ namespace Clinica.MVC.Controllers
             var result = await _pacienteService.GetPacientes();
             return View(result);
         }
+        [HttpGet]
+        public async Task<IActionResult> Create()
+        {
+            return View();
+        }
+        [HttpPost]
+		[ValidateAntiForgeryToken]
+		public IActionResult Create([Bind("Id,Nome,DataNascimento,Telefone,Email")] PacienteViewModel pacienteVM)
+        {
+            if (ModelState.IsValid)
+            {
+                _pacienteService.Add(pacienteVM);
+				return RedirectToAction(nameof(Index));
+			}
+			return View(pacienteVM);
+		}
     }
 }

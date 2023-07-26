@@ -1,0 +1,54 @@
+﻿@model Clinica.Application.ViewModels.PacienteViewModel;
+
+@{
+	ViewData["Title"] = "Cadastrar Paciente";
+}
+
+<h2>@ViewData["Title"]</h2>
+
+<form asp-action="Create">
+	<div class="form-horizontal">
+		<hr />
+		@* Custom ViewComponent as TagHelper*@
+		<vc:summary />
+
+		<div class="form-group">
+			<label asp-for="Nome" class="col-md-2 control-label"></label>
+			<div class="col-md-10">
+				<input asp-for="Nome" class="form-control" />
+				<span asp-validation-for="Nome" class="text-danger"></span>
+			</div>
+		</div>
+
+		<div class="form-group">
+			<label asp-for="DataNascimento" class="col-md-2 control-label"></label>
+			<div class="col-md-10">
+				<input asp-for="DataNascimento" class="form-control" />
+				<span asp-validation-for="DataNascimento" class="text-danger"></span>
+			</div>
+		</div>
+
+		<div class="form-group">
+			<label asp-for="Telefone" class="col-md-2 control-label"></label>
+			<div class="col-md-10">
+				<input asp-for="Telefone" class="form-control" />
+				<span asp-validation-for="Telefone" class="text-danger"></span>
+			</div>
+
+			<div class="form-group">
+				<label asp-for="Email" class="col-md-2 control-label"></label>
+				<div class="col-md-10">
+					<input asp-for="Email" class="form-control" />
+					<span asp-validation-for="Email" class="text-danger"></span>
+				</div>
+		</div>
+
+		<div class="form-group mt-3">
+			<div class="col-md-offset-2 col-md-10">
+				<a asp-action="Index" class="btn btn-primary">Voltar</a>
+				<input type="submit" value="Create" class="btn btn-success" />
+			</div>
+		</div>
+
+	</div>
+</form>
