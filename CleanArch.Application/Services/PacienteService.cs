@@ -40,7 +40,7 @@ namespace Clinica.Application.Services
 
         public async Task Remove(int id)
         {
-            var pacienteEntity = await _pacienteRepository.GetByIdAsync(id);
+            var pacienteEntity = _pacienteRepository.GetByIdAsync(id).Result;
             await _pacienteRepository.RemoveAsync(pacienteEntity);
 
         }
