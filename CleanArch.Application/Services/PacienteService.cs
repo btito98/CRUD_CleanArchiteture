@@ -34,7 +34,7 @@ namespace Clinica.Application.Services
 
         public async Task<IEnumerable<PacienteViewModel>> GetPacientes()
         {
-           var pacienteEntity = await _pacienteRepository.GetPacientesAsync();
+            var pacienteEntity = await _pacienteRepository.GetPacientesAsync();
             return _mapper.Map<IEnumerable<PacienteViewModel>>(pacienteEntity);
         }
 

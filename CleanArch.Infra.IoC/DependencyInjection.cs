@@ -33,10 +33,12 @@ namespace Clinica.Infra.IoC
          
             services.AddScoped<IMedicoRepository, MedicoRepository>();
             services.AddScoped<IPacienteRepository, PacienteRepository>();
+            services.AddScoped<IUsuarioRepository, UsuarioRepository>();
 
           
             services.AddScoped<IMedicoService, MedicoService>();
             services.AddScoped<IPacienteService, PacienteService>();
+            services.AddScoped<IUsuarioService, UsuarioService>();
 
             return services;
         }

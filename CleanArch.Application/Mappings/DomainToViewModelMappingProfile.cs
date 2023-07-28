@@ -15,6 +15,7 @@ namespace Clinica.Application.Mappings
         {
             CreateMap<Medico, MedicoViewModel>();
             CreateMap<Paciente, PacienteViewModel>();
+            CreateMap<Usuario, UsuarioViewModel>();
         }
     }
 }
